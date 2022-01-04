@@ -9,8 +9,8 @@ class PreRegistrationsController < ApplicationController
     if user_params[:email] == user_params[:email_confirmation]
     @user = User.new(user_params.slice(:email, :password, :password_confirmation))
     @user.save!
-    
-    
+    # セーブができたら
+    redirect_to "http://www.pikawaka.com"
     end
   end
 
