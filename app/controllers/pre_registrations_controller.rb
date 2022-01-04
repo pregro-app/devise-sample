@@ -1,4 +1,4 @@
-class PreRegistraionController < ApplicationController
+class PreRegistrationsController < ApplicationController
 
   def show
     @user = User.new
@@ -8,6 +8,9 @@ class PreRegistraionController < ApplicationController
     # メールアドレスが同じなら
     if user_params[:email] == user_params[:email_confirmation]
     @user = User.new(user_params.slice(:email, :password, :password_confirmation))
+    @user.save!
+    
+    
     end
   end
 
@@ -15,7 +18,7 @@ class PreRegistraionController < ApplicationController
   private 
   def user_params
     password = Devise.friendly_token
-    params.require(:user).permit(:email, :email_comfirmation).merge(password: password, password_confirmation: password )
+    params.require(:user).permit(:email, :email_confirmation).merge(password: password, password_confirmation: password )
   end
   
 end

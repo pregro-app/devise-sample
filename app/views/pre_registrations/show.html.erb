@@ -1,0 +1,21 @@
+<h2>Sign up</h2>
+
+<%= form_with model: @user, url: pre_registration_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_confirmation %><br />
+    <%= f.email_field :email_confirmation, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+
