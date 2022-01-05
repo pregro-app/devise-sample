@@ -6,7 +6,9 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: current_user.id)
+    
+    
+    @user = User.new(user_params)
     
     
     binding.pry
@@ -19,9 +21,7 @@ class RegistrationsController < ApplicationController
 
   private 
   def user_params
-    
-    # email = Devise.friendly_token
-    params.require(:user).permit(:id ,:password, :password_confirmation)
+    params.require(:user).permit(:email ,:password, :password_confirmation)
   end
   
 end

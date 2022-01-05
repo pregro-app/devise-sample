@@ -2,6 +2,7 @@
 
 <%= form_with model: @user, url: registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
+  <%= f.hidden_field :confirmation_token %>
 
   
 
