@@ -7,6 +7,10 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   end
 
   def confirm
+    
+    
+    binding.pry
+    
     confirmation_token = params[resource_name][:confirmation_token]
     self.resource = resource_class.find_by_confirmation_token!(confirmation_token)
 
@@ -21,7 +25,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   private
     def confirm_params
-      params.require(resource_name).permit(:password)
+      params.require(resource_name).permit(:password, :name, :age)
     end
 
   # GET /resource/confirmation?confirmation_token=abcdef
